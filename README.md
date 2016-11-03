@@ -1,5 +1,17 @@
 #eRumby-Car
  
-Master degree thesis on a RC electric car based on the Kyosho INFERNO VE Race RC car.
+RC electric car based on the Kyosho INFERNO VE Race RC car.
 
-![alt tag] (https://github.com/jmolinaroli/erumby-car/blob/master/Model/model.png)
+
+
+Object of this study:
+* definition of the architecture of the car:
+ - hardware
+ - software
+ - sensors
+ - actuators
+* calibration of the sensors
+* definition of the model
+* development of an obstacle avoidance algorithm
+
+![alt tag] (https://github.com/jmolinaroli/erumby-car/blob/master/Model/boards_model.png)
