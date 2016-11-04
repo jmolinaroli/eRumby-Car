@@ -2,7 +2,9 @@
 
 Based on [arduino-encoder-board](https://github.com/UniTN-Mechatronics/arduino-encoder-board) project.
 
-On the car we have four microduino as slaves. Each one reads the input signal from one encoder, elaborates and sends the collected data to the master by I2C protocol.
+On the car we have four microduino as slaves. Each one reads the input signal from one encoder, elaborates the collected and sends the values data to the master by I2C protocol.
+
+![alt tag] (https://github.com/jmolinaroli/eRumby-Car/blob/master/Img/encoders_model.png)
 
 For this project (differently from the **arduino-encoder-board** project) we fixed the configuration settings of the microduino boards in **EncoderSlave.cpp**:
 
@@ -30,7 +32,7 @@ void EncoderSlave::default_settings() {
 ```
 
 
-Where in **EncoderSlave.h** we have for the encoder on the front right wheel:
+Where in **EncoderSlave.h** for the encoder on the front right wheel we have: 
 ```c++
 #define CH_A 4
 #define CH_B 5

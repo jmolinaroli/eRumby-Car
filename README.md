@@ -14,4 +14,4 @@ Object of this study:
 * definition of the model
 * development of an obstacle avoidance algorithm
 
-![alt tag] (https://github.com/jmolinaroli/erumby-car/blob/master/Model/boards_model.png)
+![alt tag] (https://github.com/jmolinaroli/eRumby-Car/blob/master/Img/boards_model.png)
