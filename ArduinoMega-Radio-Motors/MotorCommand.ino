@@ -28,11 +28,11 @@
 int val = 0;
 int valS = 0;
 
-void SetMotori(int pin_ESC, int pin_Servo) {
+void SetMotors(int pin_ESC, int pin_Servo) {
   SetPinFrequency(ESC, 71.4);
   SetPinFrequency(SERVO, 71.4);
 }
-void UpdateMotori() {
+void UpdateMotors() {
   valS = map(pinData[0].pulseWidth, DUTY_STEERING_RIGHT, DUTY_STEERING_LEFT, DUTY_SERVO_RIGHT, DUTY_SERVO_LEFT);
   if (pinData[1].pulseWidth <= DUTY_MOTOR_NEUTRAL - 50) {
     pwmWriteHR(ESC, DUTY_ESC_NEUTRAL);

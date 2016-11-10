@@ -5,9 +5,9 @@
 
 #define ISR_HOW ISR_NOBLOCK //ISR_BLOCK  ISR_NOBLOCK
 
-#define STEERING 51  //3°bit del registro  0x04  
-#define MOTOR 52  //2°bit del registro  0x02
-#define MODE 53  //1°bit del registro  0x01
+#define STEERING 51   //3° register bit 0x04  
+#define MOTOR 52      //2° register bit 0x02
+#define MODE 53       //1° register bit 0x01
 
 #define ESC 11
 #define SERVO 12
@@ -32,7 +32,7 @@ void setup() {
   Serial.begin(57600);
   configureReceiver(); // Setup receiver pins for pin change interrupts
   Serial.flush();
-  SetMotori(ESC,SERVO);
+  SetMotors(ESC,SERVO);
 }
 
 void loop() {
@@ -43,7 +43,7 @@ void loop() {
     sei();
   }
   if ((pinData[2].pulseWidth >= DUTY_MODE_CENTRAL - 50) && (pinData[2].pulseWidth <= DUTY_MODE_CENTRAL + 50))
-    UpdateMotori();
+    UpdateMotors();
   if ((pinData[2].pulseWidth >= DUTY_MODE_LOW - 50) && (pinData[2].pulseWidth <= DUTY_MODE_LOW + 50))
     Sicurezza();
 }
@@ -77,7 +77,7 @@ ISR(PCINT0_vect, ISR_HOW) {
   uint8_t mask;
   uint8_t cPINB; // To read the Port B Input value
   uint32_t cTime; // To keep track of the current executing time, i.e. current Time
-  cPINB = PINB;  //                                     // Let's save the Port B Input value as soon as possible  // modded 14/05
+  cPINB = PINB;                                         // Let's save the Port B Input value as soon as possible  // modded 14/05
   cTime = micros();                                     // Reads the number of microseconds elapsed since the start of the code, with a resolution of 4 us
   mask = cPINB ^ PCintLast;                             // XORing the Port D Input with the last value saved we get mask for the changed bits
   PCintLast = cPINB;    // we save the Port B Input value for the next interrupt occurence
