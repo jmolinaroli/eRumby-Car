@@ -6,7 +6,7 @@ void PrintData();
 void IMUupdate();
 
 void setup() {
-  Serial.begin(19200);
+  Serial.begin(9600);
   //Serial.flush();
   // Init sensors
   delay(50);  // Give sensors enough time to start
