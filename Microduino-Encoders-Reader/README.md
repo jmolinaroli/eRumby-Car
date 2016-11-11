@@ -4,7 +4,7 @@ Based on [arduino-encoder-board](https://github.com/UniTN-Mechatronics/arduino-e
 
 On the car we have four microduino as slaves. Each one reads the input signal from one encoder, elaborates the collected and sends the values data to the master by I2C protocol.
 
-![alt tag] (https://github.com/jmolinaroli/eRumby-Car/blob/master/Img/encoders_model.png)
+![alt tag] (https://github.com/jmolinaroli/eRumby-Car/blob/master/Models/Img/encoders_model.png)
 
 For this project (differently from the **arduino-encoder-board** project) we fixed the configuration settings of the microduino boards in **EncoderSlave.cpp**:
 

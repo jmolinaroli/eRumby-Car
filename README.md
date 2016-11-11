@@ -4,7 +4,7 @@ RC electric car based on the Kyosho INFERNO VE Race RC car.
 
 
 
-Object of this study:
+Objects of this study:
 * definition of the architecture of the car:
  - hardware
  - software
@@ -14,4 +14,4 @@ Object of this study:
 * definition of the model
 * development of an obstacle avoidance algorithm
 
-![alt tag] (https://github.com/jmolinaroli/eRumby-Car/blob/master/Img/boards_model.png)
+![alt tag] (https://github.com/jmolinaroli/eRumby-Car/blob/master/Models/Img/boards_model.png)
