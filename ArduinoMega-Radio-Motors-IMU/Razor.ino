@@ -1,4 +1,5 @@
 #include <Wire.h>
+
 /*****************************************************************/
 /*********** USER SETUP AREA! Set your options here! *************/
 /*****************************************************************/
@@ -683,4 +684,30 @@ void IMUupdate() {
   Normalize();
   Drift_correction();
   Euler_angles();
+}
+
+void PrintDataIMU() {
+  //invio dati al Linino {roll pitch yaw acc_x acc_y acc_z gyro_x gyro_y gyro_z}
+  Serial.print(TO_DEG(roll));
+  Serial.print(" ");
+  //  Serial.print("\t");
+  Serial.print(TO_DEG(pitch));
+  Serial.print(" ");
+  //  Serial.print("\t");
+  Serial.print(TO_DEG(yaw));
+  Serial.print("\n");
+  //  Serial.print("\t");
+  //  Serial.print(accel[0]);
+  //  Serial.print("\t");
+  //  Serial.print(accel[1]);
+  //  Serial.print("\t");
+  //  Serial.print(accel[2]);
+  //  Serial.print("\t");
+  //  Serial.print(gyro[0]);
+  //  Serial.print("\t");
+  //  Serial.print(gyro[1]);
+  //  Serial.print("\t");
+  //  Serial.print(gyro[2]);
+  //  Serial.print("\n");
+
 }

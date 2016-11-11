@@ -1,3 +1,15 @@
+#define __MOTORCOMMAND__
+#include <EEPROM.h>
+#include <arduino.h>
+#include <Wire.h>
+
+#define STEERING 51   //3° register bit 0x04  
+#define MOTOR 52      //2° register bit 0x02
+#define MODE 53       //1° register bit 0x01
+
+#define ESC 11
+#define SERVO 12
+
 // STERZO - VALORI DI DUTY CYCLE (ms, periodo in cui sta alta l'onda quadra)
 #define DUTY_STEERING_RIGHT 1064
 #define DUTY_STEERING_NEUTRAL 1476

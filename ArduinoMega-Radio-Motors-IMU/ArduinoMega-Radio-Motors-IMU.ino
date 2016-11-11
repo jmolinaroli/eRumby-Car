@@ -1,7 +1,7 @@
+#include <EEPROM.h>
 #include "PWM.h"
 #include "pins_arduino.h"
 #include "Arduino.h"
-#include "SoftwareSerial.h"
 #include "inttypes.h"
 
 #define ISR_HOW ISR_NOBLOCK //ISR_BLOCK  ISR_NOBLOCK
@@ -28,12 +28,12 @@ volatile static uint8_t PCintLast;
 volatile static ReceivingData pinData[3];
 char c[100] = {'\0'};
 
-void PrintData();
+void PrintDataIMU();
 void IMUupdate();
 
 void setup() {
   InitTimersSafe();
-  Serial.begin(57600);
+  Serial.begin(115200);
   configureReceiver(); // Setup receiver pins for pin change interrupts
   Serial.flush();
   SetMotors(ESC,SERVO);
@@ -41,18 +41,18 @@ void setup() {
   Accel_Init();
   Magn_Init();
   Gyro_Init();
-  // Read sensors, init DCM algorithm
   delay(20);  // Give sensors enough time to collect data
   reset_sensor_fusion();
 }
 
 void loop() {
   //Invio dati!
-  if (Serial.read() == 'a') {
+  //if (Serial.read() == 'a') {
     cli();
     PrintData();
+    PrintDataIMU();
     sei();
-  }
+  //}
   
   IMUupdate();
   if ((pinData[2].pulseWidth >= DUTY_MODE_CENTRAL - 50) && (pinData[2].pulseWidth <= DUTY_MODE_CENTRAL + 50))
@@ -68,32 +68,6 @@ void PrintData() {
   Serial.print('\t');
   Serial.print(pinData[2].pulseWidth);
   Serial.print('\n');
-  pinData[0].counter = 0;
-  pinData[1].counter = 0;
-  pinData[2].counter = 0;
-  //invio dati al Linino {roll pitch yaw acc_x acc_y acc_z gyro_x gyro_y gyro_z}
-  Serial.print(TO_DEG(roll));
-  Serial.print(" ");
-  //  Serial.print("\t");
-  Serial.print(TO_DEG(pitch));
-  Serial.print(" ");
-  //  Serial.print("\t");
-  Serial.print(TO_DEG(yaw));
-  Serial.print("\n");
-  //  Serial.print("\t");
-  //  Serial.print(accel[0]);
-  //  Serial.print("\t");
-  //  Serial.print(accel[1]);
-  //  Serial.print("\t");
-  //  Serial.print(accel[2]);
-  //  Serial.print("\t");
-  //  Serial.print(gyro[0]);
-  //  Serial.print("\t");
-  //  Serial.print(gyro[1]);
-  //  Serial.print("\t");
-  //  Serial.print(gyro[2]);
-  //  Serial.print("\n");
-
 }
 
 void configureReceiver() {
