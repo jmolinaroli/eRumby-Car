@@ -16,7 +16,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r"
-   sodipodi:docname="model_type2.svg">
+   sodipodi:docname="connections_model.svg"
+   inkscape:export-filename="/home/jacopo/Git/erumby-car/Models/Img/connections_model.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4">
     <marker
@@ -202,8 +205,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.32"
-     inkscape:cx="2332.7445"
-     inkscape:cy="1433.6438"
+     inkscape:cx="1920.1696"
+     inkscape:cy="1281.7532"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -2144,15 +2147,15 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="2178.4167"
+       x="2179.7979"
        y="1928.9706"
        id="text4478-0-6-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4480-3-2-8"
-         x="2178.4167"
+         x="2179.7979"
          y="1928.9706"
-         style="font-size:18.75px">D</tspan></text>
+         style="font-size:18.75px">53</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -2164,7 +2167,7 @@
          id="tspan4484-1-1-7"
          x="2180.3579"
          y="1959.9204"
-         style="font-size:18.75px">A</tspan></text>
+         style="font-size:18.75px">52</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -2176,7 +2179,7 @@
          id="tspan4468-2-6-3-6"
          x="2180.9546"
          y="1989.0784"
-         style="font-size:18.75px">A</tspan></text>
+         style="font-size:18.75px">51</tspan></text>
     <path
        style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#da0000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 567.08775,1940.7138 187.1749,0"
@@ -2345,7 +2348,7 @@
          id="tspan4480-3-2-3"
          x="1864.7502"
          y="1897.8059"
-         style="font-size:18.75px">PWM</tspan></text>
+         style="font-size:18.75px">11</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -2357,7 +2360,7 @@
          id="tspan4484-1-1-4"
          x="1863.5034"
          y="1930.144"
-         style="font-size:18.75px">PWM</tspan></text>
+         style="font-size:18.75px">12</tspan></text>
     <path
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4527-3-31-2-7-9"
@@ -3370,18 +3373,6 @@
          x="1127.597"
          y="947.84882"
          style="font-size:18.75px">Ch 6</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="2698.2849"
-       y="1296.3729"
-       id="text4474-6-7-2"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4476-0-9-0"
-         x="2698.2849"
-         y="1296.3729"
-         style="font-size:18.75px">Ch 7</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"

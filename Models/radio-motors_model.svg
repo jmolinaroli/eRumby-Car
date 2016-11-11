@@ -17,7 +17,7 @@
    version="1.1"
    inkscape:version="0.91 r"
    sodipodi:docname="radio-motors_model.svg"
-   inkscape:export-filename="/home/jacopo/Git/erumby-car/Img/radio-motors_model.png"
+   inkscape:export-filename="/home/jacopo/Git/erumby-car/Models/Img/radio-motors_model.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -182,9 +182,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.45254834"
-     inkscape:cx="915.32822"
-     inkscape:cy="787.15111"
+     inkscape:zoom="0.32"
+     inkscape:cx="1982.8536"
+     inkscape:cy="1030.0278"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -428,7 +428,10 @@
        height="295.12012"
        width="427.4733"
        id="rect6311-7-3-35-9-6-9"
-       style="display:inline;fill:#ffffff;fill-opacity:0.68281938;fill-rule:nonzero;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:1" />
+       style="display:inline;fill:#ffffff;fill-opacity:0.68281938;fill-rule:nonzero;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:100;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/jacopo/Git/erumby-car/Models/Img/radio-motors_model.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <text
        sodipodi:linespacing="125%"
        id="text6313-8-5-62-3-1-4"
@@ -704,15 +707,15 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="1468.7096"
+       x="1470.9193"
        y="2179.9204"
        id="text4478-0-6-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4480-3-2-8"
-         x="1468.7096"
+         x="1470.9193"
          y="2179.9204"
-         style="font-size:18.75px">D</tspan></text>
+         style="font-size:18.75px">53</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -724,7 +727,7 @@
          id="tspan4484-1-1-7"
          x="1470.6508"
          y="2210.8701"
-         style="font-size:18.75px">A</tspan></text>
+         style="font-size:18.75px">52</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -736,7 +739,7 @@
          id="tspan4468-2-6-3-6"
          x="1471.2474"
          y="2240.0281"
-         style="font-size:18.75px">A</tspan></text>
+         style="font-size:18.75px">51</tspan></text>
     <path
        style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#da0000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 321.4196,2192.2156 108.7303,0"
@@ -905,7 +908,7 @@
          id="tspan4480-3-2-3"
          x="1155.0431"
          y="2148.7556"
-         style="font-size:18.75px">PWM</tspan></text>
+         style="font-size:18.75px">11</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -917,7 +920,7 @@
          id="tspan4484-1-1-4"
          x="1153.7963"
          y="2181.0938"
-         style="font-size:18.75px">PWM</tspan></text>
+         style="font-size:18.75px">12</tspan></text>
     <path
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:100;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4527-3-31-2-7-9"
@@ -1506,17 +1509,5 @@
        sodipodi:end="6.2151175"
        sodipodi:open="true"
        d="m 1426.5725,2076.5801 a 5.1309757,5.1310039 0 0 1 -5.0437,5.1302 5.1309757,5.1310039 0 0 1 -5.2153,-4.9556 5.1309757,5.1310039 0 0 1 4.8662,-5.2989 5.1309757,5.1310039 0 0 1 5.3809,4.7753" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="1538.3698"
-       y="1604.2185"
-       id="text4474-6-7-2"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4476-0-9-0"
-         x="1538.3698"
-         y="1604.2185"
-         style="font-size:18.75px">Ch 7</tspan></text>
   </g>
 </svg>
