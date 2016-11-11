@@ -13,6 +13,9 @@
 #define ESC 11
 #define SERVO 12
 
+#define MAX_ENCS 4
+#define I2C_address 0x02
+
 #define DUTY_MODE_HIGH 2024
 #define DUTY_MODE_CENTRAL 1504
 #define DUTY_MODE_LOW 980
@@ -24,12 +27,21 @@ typedef struct ReceivingData {
   byte counter;
 };
 
+struct data_t{
+  long TO_DEG(roll)[MAX_ENCS];
+  long TO_DEG(pitch)[MAX_ENCS];
+  long TO_DEG(yaw)[MAX_ENCS];
+};
+
+
 volatile static uint8_t PCintLast;
 volatile static ReceivingData pinData[3];
 char c[100] = {'\0'};
 
 void PrintDataIMU();
 void IMUupdate();
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void setup() {
   InitTimersSafe();
@@ -43,7 +55,11 @@ void setup() {
   Gyro_Init();
   delay(20);  // Give sensors enough time to collect data
   reset_sensor_fusion();
+  Wire.begin(I2C_address);
+  Wire.onRequest(requestEvent);
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void loop() {
   //Invio dati!
@@ -61,6 +77,8 @@ void loop() {
     Sicurezza();
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void PrintData() {
   Serial.print(pinData[0].pulseWidth);
   Serial.print('\t');
@@ -69,6 +87,8 @@ void PrintData() {
   Serial.print(pinData[2].pulseWidth);
   Serial.print('\n');
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void configureReceiver() {
   cli();
@@ -81,6 +101,13 @@ void configureReceiver() {
   sei();
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void requestEvent() { 
+  Wire.write(data_t, sizeof(data_t)); //the data are sent to the master
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ISR(PCINT0_vect, ISR_HOW) {
   uint8_t mask;
