@@ -17,7 +17,7 @@
    version="1.1"
    inkscape:version="0.91 r"
    sodipodi:docname="encoders_model.svg"
-   inkscape:export-filename="/home/jacopo/Git/erumby-car/Microduino-Encoders-Reader/encoders_model.png"
+   inkscape:export-filename="/home/jacopo/Git/erumby-car/Models/Img/encoders_model.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -182,9 +182,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.22627417"
-     inkscape:cx="1412.3663"
-     inkscape:cy="461.46532"
+     inkscape:zoom="0.32"
+     inkscape:cx="946.46139"
+     inkscape:cy="1019.9489"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -202,7 +202,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -2138,16 +2138,11 @@
        style="font-style:normal;font-weight:normal;font-size:21.93423271px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"
        transform="scale(0.99521609,1.0048069)"><tspan
-         id="tspan6317-4-6-91-6-2"
          y="1774.6437"
          x="1761.7148"
          sodipodi:role="line"
-         style="font-size:25px">MASTER</tspan><tspan
-         y="1805.8937"
-         x="1761.7148"
-         sodipodi:role="line"
          style="font-size:25px"
-         id="tspan6666" /></text>
+         id="tspan6666">ArduinoMega</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
