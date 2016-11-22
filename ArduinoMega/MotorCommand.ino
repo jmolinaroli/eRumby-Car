@@ -28,24 +28,49 @@
 int val = 0;
 int valS = 0;
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void SetMotori(int pin_ESC, int pin_Servo) {
   SetPinFrequency(ESC, 71.4);
   SetPinFrequency(SERVO, 71.4);
 }
-void UpdateMotori() {
-  valS = map(pinData[0].pulseWidth, DUTY_STEERING_RIGHT, DUTY_STEERING_LEFT, DUTY_SERVO_RIGHT, DUTY_SERVO_LEFT);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void UpdateMotors() {
+  
+  //Retro
   if (pinData[1].pulseWidth <= DUTY_MOTOR_NEUTRAL - 50) {
-    pwmWriteHR(ESC, DUTY_ESC_NEUTRAL);
+    val = map(pinData[1].pulseWidth, DUTY_MOTOR_MIN, DUTY_MOTOR_MAX, DUTY_ESC_NEUTRAL, DUTY_ESC_MIN);
+    pwmWriteHR(ESC, val);
+    //pwmWriteHR(ESC, DUTY_ESC_NEUTRAL);
   }
+  //Traction
   if (pinData[1].pulseWidth >= DUTY_MOTOR_NEUTRAL + 50) {
     val = map(pinData[1].pulseWidth, DUTY_MOTOR_MIN, DUTY_MOTOR_MAX, DUTY_ESC_NEUTRAL, DUTY_ESC_MIN);
     pwmWriteHR(ESC, val);
   }
+  //Idle
   if ((pinData[1].pulseWidth <= DUTY_MOTOR_NEUTRAL + 50) && (pinData[1].pulseWidth >= DUTY_MOTOR_NEUTRAL - 50))
     pwmWriteHR(ESC, DUTY_ESC_NEUTRAL);
+  }  
+
+  //Steering motor 
+  valS = map(pinData[0].pulseWidth, DUTY_STEERING_RIGHT, DUTY_STEERING_LEFT, DUTY_SERVO_RIGHT, DUTY_SERVO_LEFT);
   pwmWriteHR(SERVO, valS);
 }
-void Sicurezza() {
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void IdleConfig() {
     pwmWriteHR(ESC, DUTY_ESC_NEUTRAL);
     pwmWriteHR(SERVO, DUTY_SERVO_NEUTRAL);
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void AutomaticControl() {
+    pwmWriteHR(ESC, DUTY_ESC_HIGH);
+    pwmWriteHR(SERVO, DUTY_SERVO_HIGH);
 }

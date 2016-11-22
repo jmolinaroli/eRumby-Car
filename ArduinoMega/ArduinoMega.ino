@@ -5,11 +5,6 @@
 #include "Arduino.h"
 #include "inttypes.h"
 
-EncoderBoard Enc3(3);
-EncoderBoard Enc4(4);
-EncoderBoard Enc5(5);
-EncoderBoard Enc6(6);
-
 #define ISR_HOW ISR_NOBLOCK //ISR_BLOCK  ISR_NOBLOCK
 
 #define STEERING 51  //3°bit del registro  0x04  
@@ -23,6 +18,11 @@ EncoderBoard Enc6(6);
 #define DUTY_MODE_CENTRAL 1504
 #define DUTY_MODE_LOW 980
 
+EncoderBoard Enc3(3);
+EncoderBoard Enc4(4);
+EncoderBoard Enc5(5);
+EncoderBoard Enc6(6);
+
 typedef struct ReceivingData {
   uint32_t pulseWidth;
   uint32_t edgeTime;
@@ -34,6 +34,8 @@ volatile static uint8_t PCintLast;
 volatile static ReceivingData pinData[3];
 char c[100] = {'\0'};
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void setup() {
   InitTimersSafe();
   Serial.begin(115200);
@@ -41,6 +43,8 @@ void setup() {
   Serial.flush();
   SetMotori(ESC,SERVO);
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void loop() {
   //Invio dati!
@@ -51,11 +55,26 @@ void loop() {
     PrintData();
     sei();
   }
-  if ((pinData[2].pulseWidth >= DUTY_MODE_CENTRAL - 50) && (pinData[2].pulseWidth <= DUTY_MODE_CENTRAL + 50))
-    UpdateMotori();
-  if ((pinData[2].pulseWidth >= DUTY_MODE_LOW - 50) && (pinData[2].pulseWidth <= DUTY_MODE_LOW + 50))
-    Sicurezza();
+  
+  
+  if ((pinData[2].pulseWidth >= DUTY_MODE_CENTRAL - 50) && (pinData[2].pulseWidth <= DUTY_MODE_CENTRAL + 50)) {
+    //MODE CENTRAL -> idle
+    IdleConfig();
+  }
+  else if ((pinData[2].pulseWidth >= DUTY_MODE_LOW - 50) && (pinData[2].pulseWidth <= DUTY_MODE_LOW + 50)) {
+    //MODE LOW -> remote control
+    UpdateMotors();
+  }
+  else if ((pinData[2].pulseWidth >= DUTY_MODE_HIGH - 50) && (pinData[2].pulseWidth <= DUTY_MODE_HIGH + 50)) {
+    //MODE HIGH -> automatic control
+    AutomaticControl();
+  }
+  else {
+    //IDLE
+    IdleConfig();
+  }
 }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void EncsUpdate() {
@@ -101,6 +120,8 @@ void PrintData() {
   pinData[2].counter = 0; 
 } 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void configureReceiver() {
   cli();
   PCMSK0 = 0;
@@ -112,6 +133,7 @@ void configureReceiver() {
   sei();
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ISR(PCINT0_vect, ISR_HOW) {
   uint8_t mask;
