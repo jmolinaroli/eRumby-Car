@@ -668,7 +668,7 @@ void Read_Gyro()
 } 
  
  
-void PrintData () { 
+void PrintDataIMU() { 
   //invio dati al Linino {roll pitch yaw acc_x acc_y acc_z gyro_x gyro_y gyro_z} 
   Serial.print(TO_DEG(roll)); 
   Serial.print("\t"); 

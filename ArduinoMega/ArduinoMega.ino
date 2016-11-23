@@ -3,6 +3,7 @@
 #include "PWM.h"
 #include "pins_arduino.h"
 #include "Arduino.h"
+#include "SoftwareSerial.h" 
 #include "inttypes.h"
 
 #define ISR_HOW ISR_NOBLOCK //ISR_BLOCK  ISR_NOBLOCK
@@ -42,14 +43,24 @@ void setup() {
   configureReceiver(); // Setup receiver pins for pin change interrupts
   Serial.flush();
   SetMotori(ESC,SERVO);
+  I2C_Init(); 
+  Accel_Init(); 
+  Magn_Init(); 
+  Gyro_Init(); 
+  // Read sensors, init DCM algorithm 
+  delay(20);  // Give sensors enough time to collect data 
+  reset_sensor_fusion();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void loop() {
   //Invio dati!
-  
+
+  PrintDataIMU()
   EncsUpdate();
+  IMUupdate(); 
+      
   if (Serial.read() == 'a') {
     cli();
     PrintData();
