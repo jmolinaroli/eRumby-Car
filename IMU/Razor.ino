@@ -478,13 +478,11 @@ void init_rotation_matrix(float m[3][3], float yaw, float pitch, float roll)
 #define WIRE_RECEIVE() Wire.receive() 
 #endif 
  
-void I2C_Init() 
-{ 
+void I2C_Init() { 
   Wire.begin(); 
 } 
  
-void Accel_Init() 
-{ 
+void Accel_Init() { 
   Wire.beginTransmission(ACCEL_ADDRESS); 
   WIRE_SEND(0x2D);  // Power register 
   WIRE_SEND(0x08);  // Measurement mode 
@@ -505,8 +503,7 @@ void Accel_Init()
 } 
  
 // Reads x, y and z accelerometer registers 
-void Read_Accel() 
-{ 
+void Read_Accel() { 
   int i = 0; 
   byte buff[6]; 
  
@@ -537,8 +534,7 @@ void Read_Accel()
   } 
 } 
  
-void Magn_Init() 
-{ 
+void Magn_Init() { 
   Wire.beginTransmission(MAGN_ADDRESS); 
   WIRE_SEND(0x02); 
   WIRE_SEND(0x00);  // Set continuous mode (default 10Hz) 
@@ -552,8 +548,7 @@ void Magn_Init()
   delay(5); 
 } 
  
-void Read_Magn() 
-{ 
+void Read_Magn() { 
   int i = 0; 
   byte buff[6]; 
  
@@ -604,8 +599,7 @@ void Read_Magn()
   } 
 } 
  
-void Gyro_Init() 
-{ 
+void Gyro_Init() { 
   // Power up reset defaults 
   Wire.beginTransmission(GYRO_ADDRESS); 
   WIRE_SEND(0x3E); 
@@ -637,8 +631,7 @@ void Gyro_Init()
 } 
  
 // Reads x, y and z gyroscope registers 
-void Read_Gyro() 
-{ 
+void Read_Gyro() { 
   int i = 0; 
   byte buff[6]; 
  
@@ -668,7 +661,7 @@ void Read_Gyro()
 } 
  
  
-void PrintData () { 
+void PrintDataIMU() { 
   //invio dati al Linino {roll pitch yaw acc_x acc_y acc_z gyro_x gyro_y gyro_z} 
   Serial.print(TO_DEG(roll)); 
   Serial.print("\t"); 

@@ -3,7 +3,6 @@
 #include "PWM.h"
 #include "pins_arduino.h"
 #include "Arduino.h"
-#include "SoftwareSerial.h" 
 #include "inttypes.h"
 
 #define ISR_HOW ISR_NOBLOCK //ISR_BLOCK  ISR_NOBLOCK
@@ -35,6 +34,9 @@ volatile static uint8_t PCintLast;
 volatile static ReceivingData pinData[3];
 char c[100] = {'\0'};
 
+void PrintData(); 
+void IMUupdate();
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void setup() {
@@ -43,46 +45,43 @@ void setup() {
   configureReceiver(); // Setup receiver pins for pin change interrupts
   Serial.flush();
   SetMotori(ESC,SERVO);
+  delay(50);  // Give sensors enough time to start 
   I2C_Init(); 
   Accel_Init(); 
   Magn_Init(); 
   Gyro_Init(); 
-  // Read sensors, init DCM algorithm 
+  //Read sensors, init DCM algorithm 
   delay(20);  // Give sensors enough time to collect data 
   reset_sensor_fusion();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 void loop() {
   //Invio dati!
 
-  PrintDataIMU()
+  if (millis() % 5 == 0) {
+    PrintData();
+  }
+  //PrintDataIMU();
   EncsUpdate();
   IMUupdate(); 
-      
+  
   if (Serial.read() == 'a') {
     cli();
     PrintData();
     sei();
   }
-  
-  
-  if ((pinData[2].pulseWidth >= DUTY_MODE_CENTRAL - 50) && (pinData[2].pulseWidth <= DUTY_MODE_CENTRAL + 50)) {
-    //MODE CENTRAL -> idle
-    IdleConfig();
+  if ((pinData[2].pulseWidth >= DUTY_MODE_CENTRAL - 50) && (pinData[2].pulseWidth <= DUTY_MODE_CENTRAL + 50)){
+    IdleStatus();
   }
-  else if ((pinData[2].pulseWidth >= DUTY_MODE_LOW - 50) && (pinData[2].pulseWidth <= DUTY_MODE_LOW + 50)) {
-    //MODE LOW -> remote control
+  if ((pinData[2].pulseWidth >= DUTY_MODE_LOW - 50) && (pinData[2].pulseWidth <= DUTY_MODE_LOW + 50)){
     UpdateMotors();
   }
-  else if ((pinData[2].pulseWidth >= DUTY_MODE_HIGH - 50) && (pinData[2].pulseWidth <= DUTY_MODE_HIGH + 50)) {
+  if ((pinData[2].pulseWidth >= DUTY_MODE_HIGH - 50) && (pinData[2].pulseWidth <= DUTY_MODE_HIGH + 50)) {
     //MODE HIGH -> automatic control
     AutomaticControl();
-  }
-  else {
-    //IDLE
-    IdleConfig();
   }
 }
 
@@ -106,9 +105,9 @@ void PrintData() {
   Serial.print("\t");
   Serial.print(Enc4.get(0), 4); //prints data from the second encoder
   Serial.print("\t");
-  Serial.print(Enc5.get(0), 4); //prints data from the second encoder
+  Serial.print(-Enc5.get(0), 4); //prints data from the second encoder
   Serial.print("\t");
-  Serial.print(Enc6.get(0), 4); //prints data from the second encoder
+  Serial.print(-Enc6.get(0), 4); //prints data from the second encoder
 
   Serial.print("\t");
   Serial.print(-Enc3.angular_speed(0), 4);
@@ -132,6 +131,7 @@ void PrintData() {
 } 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 void configureReceiver() {
   cli();
