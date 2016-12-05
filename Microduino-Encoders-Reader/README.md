@@ -25,7 +25,7 @@ void EncoderSlave::default_settings() {
    settings_u.settings.I2C_address = I2C_ADDR;
    settings_u.settings.EEPROM_address = 0x10;
    settings_u.settings.read_index = false;
-   settings_u.settings.Speed = true;
+   settings_u.settings.Speed = false;
    settings_u.settings.speed_th_l = 0;
    settings_u.settings.speed_th_h = 1;
 }
@@ -37,9 +37,9 @@ Where in **EncoderSlave.h** for the encoder on the front right wheel we have:
 
 
 ```c++
-#define CH_A 4
-#define CH_B 5
-#define CH_X 6
+#define CH_A 1
+#define CH_B 2
+#define CH_X 3
 #define I2C_ADDR 0x03
 ```
 
@@ -48,9 +48,9 @@ for the encoder on the front left wheel:
 
 
 ```c++
-#define CH_A 7
-#define CH_B 8
-#define CH_X 9
+#define CH_A 10
+#define CH_B 11
+#define CH_X 12
 #define I2C_ADDR 0x04
 ```
 

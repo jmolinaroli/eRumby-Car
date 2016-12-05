@@ -48,7 +48,7 @@ void EncoderSlave::default_settings() {
    settings_u.settings.I2C_address = I2C_ADDR;
    settings_u.settings.EEPROM_address = 0x10;
    settings_u.settings.read_index = false;
-   settings_u.settings.Speed = true;
+   settings_u.settings.Speed = false;
    settings_u.settings.speed_th_l = 0;
    settings_u.settings.speed_th_h = 1;
 }
