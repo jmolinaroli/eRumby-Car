@@ -21,7 +21,7 @@ void setup() {
  
 void loop() { 
  
-    PrintData(); 
+    PrintDataIMU(); 
     IMUupdate(); 
     delay(50); 
 } 
