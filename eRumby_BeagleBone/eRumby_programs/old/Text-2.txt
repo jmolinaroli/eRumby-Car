@@ -1,0 +1,30 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides: erumbymain.sh
+# Should-Start: console-screen dbus network-manager
+# Required-Start: $remote_fs $network $local_fs
+# Required-Stop: $remote_fs 
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start myprogram at boot time
+### END INIT INFO
+#
+
+set -e
+
+. /lib/lsb/init-functions
+
+PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/sbin
+
+SCRIPT="/usr/local/sbin/erumbymain.sh"
+PROGRAMNAME="BeagleBoneLED.py" 
+case "$1" in
+start)
+     $SCRIPT
+     ;;
+stop)
+     skill $PROGRAMNAME
+     ;;
+esac
+
+exit 0
