@@ -35,7 +35,7 @@ def blink() :
 
 
 #BeagleBone's blinking leds code
-os.system("sudo ~/script/BeagleBoneLED.py &")
+os.system("sudo /script/BeagleBoneLED.py &")
 
 
 
