@@ -39,6 +39,6 @@ os.system("sudo /script/BeagleBoneLED.py &")
 
 time.sleep(2)
 
-#BeagleBone's blinking leds code
+#BeagleBone's communications code
 os.system("sudo ~/data/communication_data.py &")
 

@@ -50,17 +50,17 @@ echo ""
     read -p " * do you want to install the eRumby daemon programs? [Y/N] " yn
     case $yn in
             ([yY][eE][sS]|[yY])
-                echo "    - copying file in /etc/init.d/erumby"
+                echo "    - copying file /etc/init.d/erumby"
                 sudo rm /etc/init.d/erumby
                 sudo cp ${SCRIPT_PATH}/eRumby_programs/erumby /etc/init.d/erumby
                 sudo chmod 777 /etc/init.d/erumby
                 
-                echo "    - copying file in /usr/local/sbin/erumbymain.sh"
+                echo "    - copying file /usr/local/sbin/erumbymain.sh"
                 sudo rm /usr/local/sbin/erumbymain.sh
                 sudo cp ${SCRIPT_PATH}/eRumby_programs/erumbymain.sh /usr/local/sbin/erumbymain.sh
                 sudo chmod 777 /usr/local/sbin/erumbymain.sh
                 
-                echo "    - copying file in /usr/local/sbin/erumbyoff.sh"
+                echo "    - copying file /usr/local/sbin/erumbyoff.sh"
                 sudo rm /usr/local/sbin/erumbyoff.sh
                 sudo cp ${SCRIPT_PATH}/eRumby_programs/erumbyoff.sh /usr/local/sbin/erumbyoff.sh
                 sudo chmod 777 /usr/local/sbin/erumbyoff.sh
@@ -69,17 +69,25 @@ echo ""
                 #sudo rm -r /script
                 sudo mkdir /script
                 
-                echo "    - copying file in /script/BeagleBoneMAIN.py"
+                echo "    - making directory /home/debian/data"
+                #sudo rm -r /script
+                sudo mkdir /home/debian/data/
+                
+                echo "    - copying file /script/BeagleBoneMAIN.py"
                 sudo cp ${SCRIPT_PATH}/eRumby_programs/BeagleBoneMAIN.py /script/BeagleBoneMAIN.py
                 sudo chmod 777 /script/BeagleBoneMAIN.py
                 
-                echo "    - copying file in /script/BeagleBoneOff.py"
+                echo "    - copying file /script/BeagleBoneOff.py"
                 sudo cp ${SCRIPT_PATH}/eRumby_programs/BeagleBoneOff.py /script/BeagleBoneOff.py
                 sudo chmod 777 /script/BeagleBoneOff.py
                 
-                echo "    - copying file in /script/BeagleBoneLED.py"
+                echo "    - copying file /script/BeagleBoneLED.py"
                 sudo cp ${SCRIPT_PATH}/eRumby_programs/BeagleBoneLED.py /script/BeagleBoneLED.py
                 sudo chmod 777 /script/BeagleBoneLED.py
+                
+                echo "    - copying file /script/communication_data.py"
+                sudo cp ${SCRIPT_PATH}/eRumby_programs/communication_data.py /script/communication_data.py
+                sudo chmod 777 /script/communication_data.py
                 
                 sudo insserv erumby
                 #daemon reload
@@ -96,9 +104,9 @@ echo ""
     read -p " * do you want to install the XBee communications? [Y/N] " yn
     case $yn in
             ([yY][eE][sS]|[yY])
-                echo "   "
-                
-    
+                echo "    - copy inside:" 
+                read -p "       'cape_enable=bone_capemgr.enable_partno=BB-UART0,BB-UART1,BB-UART2,BB-UART4,BB-UART5' [press ENTER]" enter
+                sudo nano /boot/uEnv.txt
                 echo "    XBee communications installation complete."
                 ;;
             *)

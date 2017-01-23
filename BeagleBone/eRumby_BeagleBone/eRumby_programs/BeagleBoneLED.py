@@ -90,6 +90,8 @@ while True:
         stair()
         a = a+1
     
+    blink(0,0,0,0)
+    time.sleep(0.1)
     time.sleep(0.3)
     
     #j morse code
