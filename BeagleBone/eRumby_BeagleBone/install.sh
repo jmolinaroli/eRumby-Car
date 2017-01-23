@@ -89,6 +89,23 @@ echo ""
                 sudo cp ${SCRIPT_PATH}/eRumby_programs/communication_data.py /script/communication_data.py
                 sudo chmod 777 /script/communication_data.py
                 
+                echo "    - copying file /script/comm_serial.cpp"
+                sudo cp ${SCRIPT_PATH}/eRumby_programs/comm_serial.cpp /script/comm_serial.cpp
+                sudo chmod 777 /script/comm_serial.cpp
+                
+                echo "    - copying file /script/serialib.cpp"
+                sudo cp ${SCRIPT_PATH}/eRumby_programs/serialib.cpp /script/serialib.cpp
+                sudo chmod 777 /script/serialib.cpp
+                
+                echo "    - copying file /script/serialib.h"
+                sudo cp ${SCRIPT_PATH}/eRumby_programs/serialib.cpp /script/serialib.cpp
+                sudo chmod 777 /script/serialib.cpp
+                
+                echo "    - compiling comm_serial.cpp"
+                cd /script/
+                sudo g++ comm_serial.cpp serialib.h serialib.cpp -o comm_serial
+                cd 
+                
                 sudo insserv erumby
                 #daemon reload
                 sudo systemctl daemon-reload
@@ -101,13 +118,13 @@ echo ""
     echo ""
     
 #install Xbee communications
-    read -p " * do you want to install the XBee communications? [Y/N] " yn
+    read -p " * do you want to configure BB-UARTs? [Y/N] " yn
     case $yn in
             ([yY][eE][sS]|[yY])
                 echo "    - copy inside:" 
                 read -p "       'cape_enable=bone_capemgr.enable_partno=BB-UART0,BB-UART1,BB-UART2,BB-UART4,BB-UART5' [press ENTER]" enter
                 sudo nano /boot/uEnv.txt
-                echo "    XBee communications installation complete."
+                echo "    BB-UARTs configuration complete."
                 ;;
             *)
                 ;;

@@ -1,5 +1,9 @@
 Program to configure the BeagleBone after the firs boot for the eRumby Car:
 
+```sh
+svn checkout https://github.com/jmolinaroli/eRumby-Car/trunk/BeagleBone/eRumby_BeagleBone
+```
+
 * SSH configurations:
 	- set the new login shell
 	- change default password
