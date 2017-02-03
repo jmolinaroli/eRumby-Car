@@ -91,25 +91,33 @@ int main()
 	serialib LS_BB;                                                                 // Object of the serialib class
 	int Ret_BB;                                                                     // Used for return values
 	char val[1];
-	
-
-	//int i = 0;
+    
 	std::ofstream out;
 	out.open("/home/debian/data/data.txt", std::ios::app);
     clock_t Start = clock();
-	std::string str = ("time \tenc_fl \tenc_fr \tenc_rl \tenc_rr \tacc_x \tacc_y \tacc_z \tgyro_x \tgyro_y \tgyro_z \tori_x \tori_y \tori_z \tgps_x \tgps_y \n");
+	
+    // current date/time based on current system
+    time_t now = time(0);
+    // convert now to string form
+    char* dt = ctime(&now);
+    out << dt << endl;
+
+	std::string str = ("time \tenc_fl \tenc_fr \tenc_rl \tenc_rr \tacc_x \tacc_y \tacc_z \tgyro_x \tgyro_y \tgyro_z \tori_x \tori_y \tori_z \tgps_x \tgps_y \taction \n");
 	out << str;
+    
+    printf (dt);
+    //std::cout << str;
 
 	// Open serial ports
 	Ret_AM=LS_AM.Open(ARDUINO_MEGA,115200);                                         // Open serial link at 115200 bauds
 	Ret_BB=LS_BB.Open(BEAGLEBONE,115200);                                           // Open serial link at 115200 bauds
 
-	if (Ret_AM!=1) {                                                                   // If an error occured...
-		printf ("Error while opening port. Permission problem ?\n");                // ... display a message ...
-		return Ret_AM;                                                                 // ... quit the application
-	} else {
-		printf ("Serial port opened successfully !\n");
-	}
+	//if (Ret_AM!=1) {                                                                   // If an error occured...
+	//	printf ("Error while opening port. Permission problem ?\n");                // ... display a message ...
+	//	return Ret_AM;                                                                 // ... quit the application
+	//} else {
+	//	printf ("Serial port opened successfully !\n");
+	//}
 
 	while (1) {
         usleep(30);
@@ -135,7 +143,7 @@ int main()
         out << "\t" << sensor_data.sensor.acc[0] << "\t" << sensor_data.sensor.acc[1] << "\t" << sensor_data.sensor.acc[2];
         out << "\t" << sensor_data.sensor.gyro[0] << "\t" << sensor_data.sensor.gyro[1] << "\t" << sensor_data.sensor.gyro[2];
         out << "\t" << sensor_data.sensor.orientation[0] << "\t" << sensor_data.sensor.orientation[1] << "\t" << sensor_data.sensor.orientation[2];
-        out << "\t" << sensor_data.sensor.gps[0] << "\t" << sensor_data.sensor.gps[1] << "\n";;
+        out << "\t" << sensor_data.sensor.gps[0] << "\t" << sensor_data.sensor.gps[1] << val << "\n";;
 
 	}
 
